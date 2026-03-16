@@ -41,6 +41,10 @@ math         execution       demos / learning
 
 ![Bloch Vector Demo](assets/images/bloch-vector-demo.png)
 
+### Synthesis Table — One State, Five Compatible Views (Notebook 10)
+
+![Synthesis Table](assets/images/synthesis-table.png)
+
 ---
 
 ## What you'll learn
