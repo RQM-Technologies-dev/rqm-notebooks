@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+
+  <!-- Background -->
+  <rect width="720" height="180" fill="#f8f9fa" rx="8"/>
+
+  <!-- Box 1: rqm-core -->
+  <rect x="20" y="30" width="200" height="120" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="120" y="72" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">rqm-core</text>
+  <line x1="50" y1="82" x2="190" y2="82" stroke="#93c5fd" stroke-width="1"/>
+  <text x="120" y="100" text-anchor="middle" font-size="11" fill="#1e40af">Quaternion / Spinor</text>
+  <text x="120" y="116" text-anchor="middle" font-size="11" fill="#1e40af">SU(2) / Bloch math</text>
+  <text x="120" y="132" text-anchor="middle" font-size="10" fill="#3b82f6" font-style="italic">canonical math</text>
+
+  <!-- Arrow 1 -->
+  <line x1="224" y1="90" x2="258" y2="90" stroke="#6b7280" stroke-width="2.5"/>
+  <polygon points="258,84 270,90 258,96" fill="#6b7280"/>
+
+  <!-- Box 2: rqm-qiskit -->
+  <rect x="272" y="30" width="200" height="120" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="372" y="72" text-anchor="middle" font-size="16" font-weight="bold" fill="#065f46">rqm-qiskit</text>
+  <line x1="302" y1="82" x2="442" y2="82" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="372" y="100" text-anchor="middle" font-size="11" fill="#065f46">Circuit execution</text>
+  <text x="372" y="116" text-anchor="middle" font-size="11" fill="#065f46">Simulator bridge</text>
+  <text x="372" y="132" text-anchor="middle" font-size="10" fill="#10b981" font-style="italic">execution bridge</text>
+
+  <!-- Arrow 2 -->
+  <line x1="476" y1="90" x2="510" y2="90" stroke="#6b7280" stroke-width="2.5"/>
+  <polygon points="510,84 522,90 510,96" fill="#6b7280"/>
+
+  <!-- Box 3: rqm-notebooks -->
+  <rect x="524" y="30" width="176" height="120" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="612" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#4c1d95">rqm-notebooks</text>
+  <line x1="544" y1="75" x2="680" y2="75" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="612" y="96" text-anchor="middle" font-size="11" fill="#4c1d95">Pedagogy</text>
+  <text x="612" y="112" text-anchor="middle" font-size="11" fill="#4c1d95">Visualisations</text>
+  <text x="612" y="128" text-anchor="middle" font-size="10" fill="#7c3aed" font-style="italic">demos / learning</text>
+
+  <!-- Bottom note -->
+  <text x="360" y="170" text-anchor="middle" font-size="11" fill="#6b7280">Notebooks import the math; they do not redefine it.</text>
+</svg>

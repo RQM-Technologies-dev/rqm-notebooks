@@ -108,6 +108,7 @@ EXPECTED_NOTEBOOKS = [
     "07_state_preparation_and_visual_checks.ipynb",
     "08_gate_composition_as_geometry.ipynb",
     "09_ibm_ready_path.ipynb",
+    "10_one_state_three_views.ipynb",
 ]
 
 
