@@ -195,3 +195,104 @@ def plot_rotation_path(
     ax = draw_bloch_sphere(ax=ax, vectors=vectors, title=title)
     ax.plot(path[:, 0], path[:, 1], path[:, 2], "-", color=path_colour, lw=1.5, alpha=0.8)
     return ax
+
+
+# ---------------------------------------------------------------------------
+# Quaternion component visualisation
+# ---------------------------------------------------------------------------
+
+def plot_quaternion_components(
+    quaternions: list[tuple[float, float, float, float]],
+    *,
+    labels: list[str] | None = None,
+    title: str = "Quaternion Components",
+    figsize: tuple[float, float] = (9, 3),
+) -> plt.Figure:
+    """Bar chart showing the (w, x, y, z) components of one or more quaternions.
+
+    Parameters
+    ----------
+    quaternions:
+        List of ``(w, x, y, z)`` tuples.
+    labels:
+        Display names for each quaternion.  Defaults to ``q0``, ``q1``, …
+    title:
+        Figure title.
+    figsize:
+        Figure size in inches.
+
+    Returns
+    -------
+    plt.Figure
+    """
+    quaternions = [tuple(float(v) for v in q) for q in quaternions]
+    n = len(quaternions)
+    if labels is None:
+        labels = [f"q{i}" for i in range(n)]
+
+    component_names = ["w (scalar)", "x", "y", "z"]
+    colours = ["#2563EB", "#7C3AED", "#059669", "#D97706"]
+    x = np.arange(4)
+    width = 0.7 / max(n, 1)
+
+    fig, ax = plt.subplots(figsize=figsize)
+    for i, (q, label) in enumerate(zip(quaternions, labels)):
+        offset = (i - (n - 1) / 2) * width
+        bars = ax.bar(x + offset, q, width, label=label, color=colours[i % len(colours)],
+                      alpha=0.85, edgecolor="white", linewidth=0.5)
+        for bar, val in zip(bars, q):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height() + (0.02 if val >= 0 else -0.06),
+                f"{val:.3f}",
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+
+    ax.axhline(0, color="black", linewidth=0.7)
+    ax.set_xticks(x)
+    ax.set_xticklabels(component_names)
+    ax.set_ylabel("Value")
+    ax.set_title(title)
+    ax.set_ylim(-1.2, 1.4)
+    if n > 1:
+        ax.legend(loc="upper right", fontsize=9)
+    ax.spines[["top", "right"]].set_visible(False)
+    return fig
+
+
+# ---------------------------------------------------------------------------
+# Bloch vector display (single-vector shorthand)
+# ---------------------------------------------------------------------------
+
+def plot_bloch_like_vector(
+    xyz: np.ndarray,
+    *,
+    label: str = r"$|\psi\rangle$",
+    colour: str = "crimson",
+    title: str = "Bloch Sphere",
+) -> plt.Axes:
+    """Plot a single Bloch vector on a standalone sphere.
+
+    This is a convenience shorthand for ``draw_bloch_sphere`` when you only
+    need to display one state quickly.
+
+    Parameters
+    ----------
+    xyz:
+        Length-3 array-like with the Bloch vector (should be unit length).
+    label:
+        Label for the vector.
+    colour:
+        Arrow colour.
+    title:
+        Axes title.
+
+    Returns
+    -------
+    plt.Axes
+    """
+    fig = plt.figure(figsize=(4, 4))
+    ax = fig.add_subplot(111, projection="3d")
+    return draw_bloch_sphere(ax=ax, vectors=[(np.asarray(xyz), label, colour)], title=title)

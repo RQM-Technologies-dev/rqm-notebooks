@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - "main"
-      - "copilot/**"  # Run CI on Copilot agent branches during active development
+      - "copilot/**"  # CI on agent branches; remove this line after initial development phase
   pull_request:
     branches: ["main"]
 
