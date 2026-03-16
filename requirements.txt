@@ -2,15 +2,14 @@
 jupyterlab>=4.0
 ipywidgets>=8.0
 
-# Scientific computing
+# Display / plotting (pure visualisation, no canonical math)
 numpy>=1.25
 matplotlib>=3.7
 
-# Quantum computing
-qiskit>=1.0
-qiskit-aer>=0.14
-
-# RQM ecosystem — source of truth for math and execution
+# RQM ecosystem — rqm-notebooks sits on top of rqm-qiskit.
+# qiskit and qiskit-aer are intentionally omitted here: they arrive as
+# transitive dependencies of rqm-qiskit.  All circuit construction and
+# execution must go through the rqm-qiskit abstraction layer.
 rqm-core>=0.1.0
 rqm-qiskit>=0.1.0
 

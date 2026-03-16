@@ -22,12 +22,16 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
 ]
 dependencies = [
+    # Notebook runtime
     "jupyterlab>=4.0",
+    "ipywidgets>=8.0",
+    # Display / plotting (pure visualisation, no canonical math)
     "matplotlib>=3.7",
     "numpy>=1.25",
-    "qiskit>=1.0",
-    "qiskit-aer>=0.14",
-    "ipywidgets>=8.0",
+    # RQM ecosystem — the only quantum stack this package sits on top of.
+    # qiskit and qiskit-aer are NOT listed here; they arrive as transitive
+    # dependencies of rqm-qiskit and must not be imported at the rqm-notebooks
+    # level without going through the rqm-qiskit abstraction layer.
     "rqm-core>=0.1.0",
     "rqm-qiskit>=0.1.0",
 ]

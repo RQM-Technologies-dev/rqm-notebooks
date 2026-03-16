@@ -21,6 +21,10 @@ math         execution       demos / learning
 `rqm-qiskit` provides the execution bridge.
 `rqm-notebooks` makes the system visible, teachable, and usable.
 
+`qiskit` and `qiskit-aer` are **not** direct dependencies of `rqm-notebooks`; they
+arrive as transitive dependencies of `rqm-qiskit`.  All circuit construction and
+quantum execution in these notebooks goes through `rqm-qiskit`'s API.
+
 ---
 
 ## Architecture
@@ -138,6 +142,7 @@ rqm-notebooks/
 
 - **rqm-core** owns all math. Notebooks must not reimplement quaternion, spinor, Bloch, or SU(2) logic.
 - **rqm-qiskit** owns circuit execution. Notebooks call its API, not raw Qiskit directly.
+- **rqm-notebooks** declares `rqm-qiskit` as a direct dependency. `qiskit` and `qiskit-aer` are intentionally absent from the declared dependencies — they arrive transitively and are not part of this package's public contract.
 - **helpers/** contains only display/formatting utilities — no canonical math.
 - No IBM hardware dependency is required to run any notebook by default.
 
